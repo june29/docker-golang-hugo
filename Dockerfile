@@ -1,8 +1,7 @@
 FROM golang:latest
 
 RUN set -x && \
-    go get github.com/magefile/mage && \
     go get -d github.com/gohugoio/hugo && \
+    go get -d github.com/wellington/go-libsass && \
     cd ${GOPATH:-$HOME/go}/src/github.com/gohugoio/hugo && \
-    mage vendor && \
-    mage install
+    go install --tags extended
